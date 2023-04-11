@@ -8,7 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href= {%static 'estilo.css'%}>
     <link rel="icon" href="favicon.png">
+    {% block title %}
     <title>Mi CV | Erica Stewart</title>
+    {% endblock title %}
+    
 </head>
 <body>
     <!--Sección Inicio-->
@@ -30,8 +33,11 @@
                 </div>
             </header>
             <div class="info">
-                <h1>ERICA STEWART</h1>
-                <H2>Desarrolladora web</H2>
+                 {% block header %}
+                 <h1>ERICA STEWART</h1>
+                 <H2>Desarrolladora web</H2>
+                 {% endblock header %}
+                
                 <div class="redes">
                     <a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
                     <a href="https://es-la.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
@@ -285,7 +291,9 @@
                     <h2>
                         <i class="fa-solid fa-envelope"></i> Correo
                     </h2>
+                    {%block email%}
                     <span class="info-contacto">rebecca.ramirez@example.com</span>
+                    {%endblock email%}
                 </div>
                 <div class="col">
                     <h2>

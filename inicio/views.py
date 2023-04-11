@@ -1,5 +1,7 @@
 from django.shortcuts import render
+from django.template import Template, context, loader
+from django.http import HttpResponse
 
 def inicio(request):
     
-    return render(request, 'inicio/index.html')
+    return render(request, 'inicio.html')
