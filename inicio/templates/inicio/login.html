@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block title  %}
+<title>Inicio</title>
+{% endblock title  %}
+
+{% block header %}
+<form action={% url 'inicio_principal:inicio' %} method="POST">
+   {% csrf_token %}
+   <table>
+        {{formulariocliente}}
+   </table>
+   <button>Crear</button>
+     
+</form>
+{% endblock header %}
+
+{%block email%}
+ <span class="info-contacto">usuario-email</span> 
+{%endblock email%}

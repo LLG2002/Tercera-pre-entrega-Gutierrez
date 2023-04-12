@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block title  %}
+<title>Clientes</title>
+{% endblock title  %}
+
+{% block header %}
+<p>
+    <form action={% url 'inicio:lista_clientes' %}>
+        {{formulario}}
+        <button>Crear</button>   
+    </form>
+</p>
+
+{{usuario}}
+
+{%if usuario%}
+
+    {%for usuario in usuario%}
+        <li>
+            usuario: {{usuario.usuario}} - email: {{usuario.email}}
+        </li>
+    {%endfor%}
+
+{%else%}
+        <h2> No hay datos sobre usuarios</h2>
+{%endif%}
+{% endblock header %}
+
+{%block email%}
+ <span class="info-contacto">usuario-email</span> 
+{%endblock email%}
