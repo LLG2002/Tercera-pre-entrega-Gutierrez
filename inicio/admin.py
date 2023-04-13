@@ -1,3 +1,5 @@
 from django.contrib import admin
 
-# Register your models here.
+from inicio.models import Clientes
+
+admin.site.register(Clientes)
