@@ -6,20 +6,18 @@ from inicio.forms import CreacionClienteFormulario, BuscarCliente
 
 
 def inicio(request):
+    
     if request.method == "POST":
         formulario = CreacionClienteFormulario(request.POST)
-        
-        if formulario.is_valid(): 
-            datos_correctos= formulario.cleaned_data
-            
-            cliente = Clientes(usuario= datos_correctos['usuario'], contraseña= datos_correctos['contraseña'], edad= datos_correctos['edad'], email= datos_correctos['email'] )
+        if formulario.is_valid():
+            datos_correctos = formulario.cleaned_data
+            cliente = Clientes(usuario=datos_correctos['usuario'], contraseña=datos_correctos['contraseña'], edad=datos_correctos['edad'], email=datos_correctos['email'])
             cliente.save()
-         
-            return redirect('inicio:lista_clientes')
-            
-         
-    formulario= CreacionClienteFormulario()
+            return redirect('/clientes')
+    else:
+        formulario = CreacionClienteFormulario()
     return render(request, 'inicio/login.html', {'formulariocliente': formulario})
+
 
 def lista_clientes(request):
      usuario_a_buscar= request.GET.get('usuario', None)

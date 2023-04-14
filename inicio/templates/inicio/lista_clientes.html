@@ -7,13 +7,13 @@
 
 {% block header %}
 <p>
-    <form action={% url 'inicio_principal:lista_clientes' %}>
-        {{formulario}}
-        <button>Crear</button>   
-    </form>
+        <form action={% url 'inicio_principal:lista_clientes' %}>
+            {{formulario}}
+            <button>Crear</button>   
+        </form>
 </p>
 
-{{usuario}}
+{% comment %} {{usuario}} {% endcomment %}
 
 {%if usuario%}
 

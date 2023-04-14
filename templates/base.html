@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href= {%static 'estilo.css'%}>
-    <link rel="icon" href="favicon.png">
+    <link rel="icon" href={%static 'favicon.png'%}>
     {% block title %}
     <title>Principal</title>
     {% endblock title %}
@@ -62,7 +62,7 @@
                  {% endblock header %}
                 
                 <div class="redes">
-                    <a href="inicio:lista_clientes"><i class="">Lista clientes</i></a>
+                    <a href="/clientes"><i class="">Lista clientes</i></a>
                     <a href="https://es-la.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
                     <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
                     <a href="https://ar.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a>
@@ -327,6 +327,6 @@
         </div>
     </section>
 
-    <script src={%static "sintaxis.js"%}></script>
+    <script src={%static 'sintaxis.js'%}></script>
 </body>
 </html>

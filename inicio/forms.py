@@ -9,5 +9,5 @@ class CreacionClienteFormulario(forms.Form):
 class BuscarCliente(forms.Form):
     usuario = forms.CharField(max_length=15, required=False)
     contraseña = forms.CharField(max_length=15, required=False)
-    email= forms.CharField(max_length=25, required=False)
+    email= forms.CharField(max_length=30, required=False)
     edad= forms.IntegerField(required=False)
