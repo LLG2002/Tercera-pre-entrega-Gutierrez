@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block title  %}
+<title>Elimiar Usuario</title>
+{% endblock title  %}
+
+{% block header %}
+
+<from action={% url 'inicio_principal:eliminar_usuario' usuario.id %} method="POST">
+    {% csrf_token %}
+   <p>Desea eliminar el siguiente usuario: {{usuario}}</p>
+    <button>Eliminar Usuario</button>
+</form>
+
+{% endblock header %}
+
+{%block email%}
+ <span class="info-contacto">style4child@gmail.com</span> 
+{%endblock email%}

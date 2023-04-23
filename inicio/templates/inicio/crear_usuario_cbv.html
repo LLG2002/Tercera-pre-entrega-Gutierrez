@@ -9,13 +9,13 @@
 <form action={% url 'inicio_principal:inicio' %} method="POST">
    {% csrf_token %}
    <table>
-        {{formulariocliente}}
+        {{form}}
    </table>
    <button>Crear</button>
      
 </form>
 {% endblock header %}
 
-{%block email%}
- <span class="info-contacto">usuario-email</span> 
-{%endblock email%}
+{% block email %}
+ <span class="info-contacto">style4child@gmail.com</span> 
+{% endblock email %} 

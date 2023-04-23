@@ -34,39 +34,15 @@
             </header>
             <div class="info">
                  {% block header %}
-                 {% comment %} <form action={%url 'inicio: inicio'%} method="">
-                    {% csrf_token %}
-                    <h1>
-                        Ingrese su nuevo:
-                        <input type="text" name= "usuario" placeholder="usuario">
-                    </h1>
-                        <input type="sumbit" placeholder="crear">
-                    <h2>
-                        Ingrese su nueva:
-                        <input type="text" name="contraseña" placeholder="contraseña">
-                    </h2>
-                        <input type="sumbit" placeholder="crear">
-                    <h3>
-                        Ingrese su:
-                        <input type="text" name= "edad" placeholder="edad">
-                    </h3>
-                        <input type="sumbit" placeholder="crear">
-                    <h3>
-                        Ingrese su:
-                        <input type="text" name= "email" placeholder="email">
-                    </h3>
-                        <input type="sumbit" placeholder="crear">
-                    
-                 </form> {% endcomment %}
 
                  {% endblock header %}
                 
                 <div class="redes">
-                    <a href="/clientes"><i class="">Lista clientes</i></a>
-                    <a href="https://es-la.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://ar.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a>
-                    <a href="https://github.com/"><i class="fa-brands fa-github"></i></a>
+                    <a href="/clientes"><i class="navbar-brand">Lista clientes</i></a>
+                    {% comment %} <a href={% url 'inicio_principal:editar_v2_usuario' %}><i class="navbar-brand">Editar Usuario</i></a> {% endcomment %}
+                    <a href=""><i class=""></i>LOGIN</a>
+                    {% comment %} <a href={% url 'inicio_principal:eliminar_v2_usuario' %}><i class="navbar-brand"></i>Eliminar</a> {% endcomment %}
+                    <a href="https://github.com/LLG2002/tercera-pre-entrega-gutierrez"><i class="fa-brands fa-github"></i></a>
                 </div>
             </div>
             <div class="foto">
@@ -315,14 +291,14 @@
                         <i class="fa-solid fa-envelope"></i> Correo
                     </h2>
                     {%block email%}
-                    <span class="info-contacto">rebecca.ramirez@example.com</span>
+                    <span class="info-contacto">style4child@gmail.com</span>
                     {%endblock email%}
                 </div>
                 <div class="col">
                     <h2>
                         <i class="fa-solid fa-globe"></i> Página Web
                     </h2>
-                    <span class="info-contacto">ericastewart.com</span>
+                    <span class="info-contacto">style4child@gmail.com</span>
                 </div>
         </div>
     </section>

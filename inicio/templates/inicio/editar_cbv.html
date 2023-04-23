@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block title  %}
+<title>Editar Usuario</title>
+{% endblock title  %}
+
+{% block header %}
+
+<from action={% url 'inicio_principal:editar_usuario' usuario.id %} method="POST">
+    {% csrf_token %}
+    <table>
+        {{form}}
+    </table>
+    <button>Editar</button>
+</form>
+
+{% endblock header %}
+
+{%block email%}
+ <span class="info-contacto">style4child@gmail.com</span> 
+{%endblock email%}

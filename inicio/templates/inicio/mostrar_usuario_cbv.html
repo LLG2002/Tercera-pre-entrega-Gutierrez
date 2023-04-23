@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block title  %}
+<title>Clientes</title>
+{% endblock title  %}
+
+{% block header %}
+<h1>{{usuario}}</h1>
+<ul>
+    <li>Usuario: {{usuario_a_mostrar.usuario}}</li>
+    <li>Telefono: {{ususario_a_mostrar.telefono}}</li>
+    <li>Email: {{usuario_a_mostrar.email}}</li>
+</ul>
+<p>
+    <button>
+        <a class="navbar-brand" href={% url 'inicio_principal:editar_usario' usuario_a_mostrar.id %}>Modificar</a>
+    </button>
+    <button>
+        <a class="navbar-brand" href={% url 'inicio_principal:eliminar_usuario' usuario_a_mostrar.id %}>Eliminar</a>
+    </button>
+</p>
+{% endblock header %}
