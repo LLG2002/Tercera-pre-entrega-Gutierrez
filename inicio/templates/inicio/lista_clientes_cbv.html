@@ -7,21 +7,23 @@
 
 {% block header %}
 
-<a class="navbar-brand" href={% url 'inicio_principal:inicio' %}>Login</a>
+{% comment %} <a class="navbar-brand" href={% url 'inicio_principal:inicio' %}>Login</a> {% endcomment %}
 {%if object_list%}
-
+<button type="button">
+<a href=""><i class=""></i>LOGIN</a>
+</button>
     {%for usuario in object_list%}
         <li>
-            
-                <a class="navbar-brand" href={% url 'inicio_principal:mostrar_usuario' usuario.id %}>{{usuario}}</a>
-                <button>
-                    <a class="navbar-brand" href={% url 'inicio_principal:editar_usuario' usuario.id %}>Editar</a>
+            Usuario: {{usuario.usuario}}
+                {% comment %} <a class="navbar-brand" href={% url 'inicio_principal:mostrar_usuario' usuario.id %}>{{usuario}}</a> {% endcomment %}
+                <button class="btn">
+                    <a  href={% url 'inicio_principal:editar_usuario' usuario.id %}>Editar</a>
                 </button>
                 <button>
                     <a class="navbar-brand" href={% url 'inicio_principal:eliminar_usuario' usuario.id %}>Eliminar</a>
                 </button>
                 
-                <a href=""><i class=""></i>LOGIN</a>
+                
                 
         </li>
     {%endfor%}

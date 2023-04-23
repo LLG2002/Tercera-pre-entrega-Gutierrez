@@ -7,7 +7,7 @@
 
 {% block header %}
 
-<from action={% url 'inicio_principal:eliminar_usuario' usuario.id %} method="POST">
+<from action= "{% url 'inicio_principal:eliminar_usuario' usuario.id %}" method="POST">
     {% csrf_token %}
    <p>Desea eliminar el siguiente usuario: {{usuario}}</p>
     <button>Eliminar Usuario</button>

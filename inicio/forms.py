@@ -12,7 +12,7 @@ class BuscarCliente(forms.Form):
     email= forms.CharField(max_length=30, required=False)
     telefono= forms.IntegerField(required=False)
     
-class EditarUsuario(forms.Form):
+class EditarUsuarioFormulario(forms.Form):
     
     contraseña = forms.CharField(max_length=15, required=False)
     email= forms.CharField(max_length=30, required=False)
