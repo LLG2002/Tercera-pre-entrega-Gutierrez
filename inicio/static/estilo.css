@@ -1,18 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Montserrat:ital,wght@1,200&family=Poppins:ital,wght@1,300&display=swap');
-*{
-    font-family: 'Poppins', sans-serif;
-    margin: 0;
-    padding: 0;
-}
+
 
 html{
     scroll-behavior: smooth;
 }
 
+.lista-usuario {
+    list-style: none;
+}
+
 /*Seccion Inicio*/
 .inicio{
-    background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)),
-    url("fondonav.jpg");
+    background-color: #fffb04c5;
+    /* background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)),
+    url("cool.jpg"); */
     background-size: cover;
     background-position: center center;
     color: #fff;
@@ -30,7 +31,7 @@ html{
 .inicio .contenido-seccion header nav{
     position: fixed;
     margin-left: 60px;
-    background-color: #006176;
+    background-color: #fffb04c5;
     padding: 15px;
     border-radius: 10px;
     text-align: left;
@@ -46,19 +47,23 @@ html{
     font-weight: bold;
 }
 /* ****** */
+.inicio .contenido-seccion header .logo .nro{
+ font-size: 5.3rem;
+ color: #1CF8D8;
+}
 .inicio .contenido-seccion header .logo{
     font-weight: bold;
-    font-size: 2.5rem;
+    font-size: 4rem;
     font-family: 'Caveat', cursive;
     text-shadow: 0 0 35px #fff;
 }
 .inicio .contenido-seccion header .logo .color{
-    color: #006176;
+    color: #fff;
     font-family: 'Caveat', cursive;
 }
 .inicio .contenido-seccion header .nav-bar{
     position: fixed;
-    background-color: #006176;
+    background-color: #1CF8D8;
     font-size: 20px;
     width: 50px;
     height: 50px;
@@ -90,8 +95,8 @@ html{
     display: inline-block;
     text-decoration: none;
     background-color: #000;
-    color: #006176;
-    border: 0px solid #006176;
+    color: #1CF8D8;
+    border: 0px solid #1CF8D8;
     border-radius: 50%;
     width: 40px;
     height: 40px;
@@ -101,21 +106,22 @@ html{
 }
 .inicio .contenido-seccion .info .redes a:hover{
     color: #fff;
-    background-color: #006176;
+    background-color: #fffb04c5;
     box-shadow: 0 0 20px #fff;
 }
 .inicio .contenido-seccion .foto{
     position: relative;
 }
 .inicio .contenido-seccion .foto img{
-    max-width: 200px;
+    width: 500px;
     border-radius: 50px;
-    border: 5px solid #006176;
-    position: absolute;
-    left: 50%;
+    border: 0px solid #1CF8D8;
+    position: relative;
+    left: 25%;
     top: -100px;
     transform: translateX(-50%);
 }
+
 /*Estilos generales*/
 .titulo-seccion{
     font-family: 'Caveat', cursive;
@@ -123,11 +129,30 @@ html{
 }
 
 /*Seccion Sobre mí*/
-.sobremi{
-    background-color: #e6e6e6;
-    padding: 140px 0 100px 0;
+
+.signup{
+    font-family: 'Caveat', cursive;
+    font-size: 2rem !important;
+    width: 100vw;
     text-align: center;
+    justify-content: center;
+    position: relative;
+    top: 50%;
+    left: 0%;
     color: #000;
+    font-size: 20px;
+    background-color: #fffb04c5;
+    border: #000000;
+    padding: 0.5% 35%;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 2.1rem;
+    margin: auto;
+}
+h3{
+    text-transform: uppercase;
+    font-size: 30px;
+    font-family: var(--bs-body-font-family);
 }
 .sobremi .contenido-seccion h3{
     max-width: 1000px;
@@ -139,7 +164,7 @@ html{
     font-size: 30px;
 }
 .sobremi .contenido-seccion .especial{
-    color: #006176;
+    color: #1CF8D8;
     font-weight: bold;
     margin-top: 15px;
 }
@@ -157,11 +182,11 @@ html{
     width: 30%;
 }
 .sobremi .contenido-seccion .fila .col i{
-    color: #006176;
+    color: #1CF8D8;
     display: inline-block;
     width: 40px;
     height: 40px;
-    border: 2px solid #006176;
+    border: 2px solid #1CF8D8;
     line-height: 40px;
     border-radius: 50%;
 }
@@ -172,58 +197,44 @@ html{
     margin: 8px 0;
 }
 
-/*Sección Habilidades*/
-.habilidades{
-    padding: 80px 0 100px 0;
-    text-align: center;
-    background: linear-gradient(rgba(0,0,0,.3), rgba(0,0,0,.3)),
-    url("fondo2.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center center;
-    color: #fff;
-}
-.habilidades .contenido-seccion{
-    max-width: 1000px;
+/*Sección CAROUSEL*/
+.slider {
+    width: 75vw;
+    height: auto;
     margin: auto;
-    padding: 0 10px;
+    overflow: hidden;
 }
-.habilidades .contenido-seccion h3{
-    text-transform: uppercase;
-    font-size: 25px;
-}
-.habilidades .contenido-seccion .fila{
-    display: inline-block;
-    justify-content: space-between;
-    margin-top: 30px;
-}
-.habilidades .contenido-seccion .fila .col{
-    width: 47%;
-    text-align: left;
-    font-weight: bold;
-}
-.habilidades .contenido-seccion .fila .col .cont-barra{
+
+.slider .slide-track {
     display: flex;
-    align-items: center;
+    animation: scroll 40s linear infinite;
+    -webkit-animation: scroll 40s linear infinite;
+    width: calc(200px * 14);
 }
-.habilidades .contenido-seccion .barra{
-    display: flex;
-    border: 1px solid #006176;
-    padding: 2px;
-    border-radius: 3px;
-    margin-right: 10px;
+
+.slider .slide {
+    width: 200px;
 }
-.habilidades .contenido-seccion .barra .e{
-    background-color: #363636;
-    width: 20px;
-    height: 30px;
-    margin-right: 2px;
+
+.slider .slide img {
+    width: 100%;
+}
+
+@keyframes scroll {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100% {
+        -webkit-transform: translateX(calc(-200px * 7));
+        transform: translateX(calc(-200px * 7));
+    }
 }
 
 /*Sección Resumen*/
 .resumen{
     color: #000;
-    background-color: #e6e6e6;
+    background-color: #fffb04c5;
     padding: 140px 0 100px 0;
     text-align: center;
 }
@@ -247,9 +258,9 @@ html{
 }
 .resumen .contenido-seccion .info .col .titulo{
     display: inline-block;
-    color: #006176;
+    color: #1CF8D8;
     font-weight: bold;
-    border: 2px solid #006176;
+    border: 2px solid #1CF8D8;
     padding: 10px;
 }
 .resumen .contenido-seccion .info .col table{
@@ -258,7 +269,7 @@ html{
 }
 .resumen .contenido-seccion .info .col table .datos{
     width: 40%;
-    border-bottom: 1px solid #bab9b9;
+    border-bottom: 1px solid #000;
 }
 .resumen .contenido-seccion .info .col table h4{
     margin-top: 10px;
@@ -273,18 +284,19 @@ html{
 }
 .resumen .contenido-seccion .info .col table .promedio{
     display: block;
-    color: #006176;
+    color: #1CF8D8;
     margin-top: 10px;
     font-weight: bold;
 }
+
 .resumen .contenido-seccion .info .col table .descripcion{
-    border-left: 1px solid #bab9b9;
+    border-left: 1px solid #000;
     padding-left: 20px;
 }
 
 /*Sección Contacto*/
 .contacto{
-    background-color: #202020;
+    background-color: #fffb04c5;
     padding: 140px 0 100 0;
     color: #e6e6e6;
     text-align: center;
@@ -326,12 +338,12 @@ html{
     width: 300px;
     box-sizing: border-box;
   
-    border: 3px solid #006176;
+    border: 3px solid #1CF8D8;
 }
   
 input:focus,
   textarea:focus {
-    border-color: #006176;
+    border-color: #1CF8D8;
 }
   
 textarea {
@@ -341,30 +353,30 @@ textarea {
 }
   
 button{
-    margin-left: .5em;
+    color: rgb(0, 0, 0);
+    margin-left: 1em;
     list-style: none;
-    color: rgb(48, 137, 192);
     font-size: 12px;
     line-height: 12px;
-    padding: 3px;
-    border-radius: 13px;
+    padding: 0.3%;
+    border-radius: 5px;
     font-family: Georgia, serif;
     font-weight: normal;
     text-decoration: none;
     font-style: normal;
     font-variant: normal;
     text-transform: none;
-    background-image: linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%);
-    box-shadow: rgb(0, 0, 0) 5px 5px 15px 5px;
-    border: 2px solid rgb(28, 110, 164);
-    display: inline-block}
+    background-image: linear-gradient(to right, rgb(28, 248, 216) 0%, rgb(4, 248, 216) 50%, rgb(4, 248, 216) 100%);
+    border: 2px solid rgb(4, 248, 216);
+    display: inline-block;
+}
     
 button:hover {
-    background: #1C6EA4; 
+    background: #000; 
 }
 
 button:active {
-    background: #144E75; 
+    background: #000; 
 }
 
 .contacto .contenido-seccion h3{
@@ -379,7 +391,7 @@ button:active {
     margin-top: 50px;
 }
 .contacto .contenido-seccion .fila .col h2{
-    color: #006176;
+    color: #1CF8D8;
     display: flex;
 }
 

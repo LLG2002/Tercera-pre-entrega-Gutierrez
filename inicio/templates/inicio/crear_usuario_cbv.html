@@ -4,17 +4,32 @@
 {% block title  %}
 <title>Inicio</title>
 {% endblock title  %}
+{%block header%}
+<h2><span style="color:black">Sobre nosotros:</span></h2>
 
-{% block header %}
-<form action={% url 'inicio_principal:inicio' %} method="POST">
-   {% csrf_token %}
-   <table>
-        {{form}}
-   </table>
-   <button>Crear</button>
-     
-</form>
-{% endblock header %}
+<td rowspan="2" class="descripcion">
+   <span style="color:black">
+   Bienvenido a nuestro local de ropa chicos y chicas. Aca encontrarás lo último en moda urbana, diseños únicos, y prendas de calidad.
+   Nuestra selección de ropa incluye una amplia variedad de remeras, camperas, pantalones y buzos, con una gran cantidad de opciones de tallas y estilos. 
+   Además, trabajamos con las marcas más populares y de mayor calidad en la industria de la moda urbana para que puedas confiar en que estás adquiriendo productos duraderos y de alta calidad.
+   En nuestro local, nos esforzamos por crear un ambiente comodo y amigable para nuestros clientes, por lo que siempre encontrarás un equipo de profesionales dispuestos a ayudarte y asesorarte en todo lo que necesites. Si estás buscando una experiencia de compra única y emocionante, ¡no dudes en visitarnos!
+   </span>
+</td>
+{%endblock header%}
+
+{% block signup %}
+         
+            <form class="signup" id="registrarse" action={% url 'inicio_principal:inicio' %} method="POST">
+               {% csrf_token %}
+               <table>
+                  <h2>Sign up</h2>
+                  <h3>¿Ya tenés tu cuenta?</h3>
+                  {{form}}
+               </table>
+               <button>Crear</button>
+               
+            </form>
+            {% endblock signup %}
 
 {% block email %}
  <span class="info-contacto">style4child@gmail.com</span> 

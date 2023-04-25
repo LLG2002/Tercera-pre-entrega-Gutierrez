@@ -6,32 +6,32 @@
 {% endblock title  %}
 
 {% block header %}
+<h1> <span style="color:black">Lista Clientes</span></h1>
 
-{% comment %} <a class="navbar-brand" href={% url 'inicio_principal:inicio' %}>Login</a> {% endcomment %}
+{% endblock header %}
+
+{% block signup %}
 {%if object_list%}
-<button type="button">
-<a href=""><i class=""></i>LOGIN</a>
-</button>
+
     {%for usuario in object_list%}
-        <li>
-            Usuario: {{usuario.usuario}}
-                {% comment %} <a class="navbar-brand" href={% url 'inicio_principal:mostrar_usuario' usuario.id %}>{{usuario}}</a> {% endcomment %}
-                <button class="btn">
-                    <a  href={% url 'inicio_principal:editar_usuario' usuario.id %}>Editar</a>
-                </button>
-                <button>
-                    <a class="navbar-brand" href={% url 'inicio_principal:eliminar_usuario' usuario.id %}>Eliminar</a>
-                </button>
-                
-                
-                
-        </li>
+        <ul>
+            <li class="signup">
+                Usuario: {{usuario.usuario}}
+        
+                    <button class="btn">
+                        <a  href={% url 'inicio_principal:editar_usuario' usuario.id %}>Editar</a>
+                    </button>
+                    <button>
+                        <a class="navbar-brand" href={% url 'inicio_principal:eliminar_usuario' usuario.id %}>Eliminar</a>
+                    </button>
+            </li>
+        </ul>
     {%endfor%}
 
 {%else%}
         <h2> No hay datos sobre usuarios</h2>
 {%endif%}
-{% endblock header %}
+{% endblock signup %}
 
 {%block email%}
  <span class="info-contacto">style4child@gmail.com</span> 
