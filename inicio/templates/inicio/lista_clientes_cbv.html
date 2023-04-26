@@ -17,13 +17,13 @@
             <li class="signup">
                 Usuario: {{usuario.usuario}}
                     <button class="btn">
-                        <a  href={% url 'inicio_principal:mostrar_usuario' usuario.id %}>Mostrar</a>
+                        <a  href={% url 'inicio_principal:mostrar_usuario' usuario.pk %}>Mostrar</a>
                     </button>
                     <button class="btn">
-                        <a  href={% url 'inicio_principal:editar_usuario' usuario.id %}>Editar</a>
+                        <a  href={% url 'inicio_principal:editar_usuario' usuario.pk %}>Editar</a>
                     </button>
                     <button>
-                        <a class="btn" href={% url 'inicio_principal:eliminar_usuario' usuario.id %}>Eliminar</a>
+                        <a class="btn" href={% url 'inicio_principal:eliminar_usuario' usuario.pk %}>Eliminar</a>
                     </button>
             </li>
         </ul>

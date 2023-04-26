@@ -6,18 +6,21 @@
 {% endblock title  %}
 
 {% block header %}
-<h1>{{usuario}}</h1>
-<ul>
-    <li>Usuario: {{usuario_a_mostrar.usuario}}</li>
-    <li>Telefono: {{ususario_a_mostrar.telefono}}</li>
-    <li>Email: {{usuario_a_mostrar.email}}</li>
-</ul>
-<p>
-    <button>
-        <a class="navbar-brand" href={% url 'inicio_principal:editar_usario' usuario_a_mostrar.id %}>Modificar</a>
-    </button>
-    <button>
-        <a class="navbar-brand" href={% url 'inicio_principal:eliminar_usuario' usuario_a_mostrar.id %}>Eliminar</a>
-    </button>
-</p>
+<h1>{{usuario.usuario}}</h1>
 {% endblock header %}
+
+{% block signup %}
+<ul class="signup">
+    <li>Usuario: {{usuario.usuario}}</li>
+    <li>Telefono: {{usuario.telefono}}</li>
+    <li>Email: {{usuario.email}}</li>
+    <p>
+        <button>
+            <a class="btn" href={% url 'inicio_principal:editar_usuario' usuario.pk %}>Editar</a>
+        </button>
+        <button>
+            <a class="btn" href={% url 'inicio_principal:eliminar_usuario' usuario.pk %}>Eliminar</a>
+        </button>
+    </p>
+</ul>
+{% endblock signup %}

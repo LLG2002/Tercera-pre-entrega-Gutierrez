@@ -1,15 +1,10 @@
 
 from inicio.models import Clientes
-from inicio.forms import CreacionClienteFormulario, BuscarCliente, EditarUsuarioFormulario
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
-from django import forms
-
-class BaseClientes(forms.Form):
-    model = Clientes
-    forms = CreacionClienteFormulario
-    fields = ['usuario', 'contraseña', 'email', 'telefono']
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 
 class ListaClientes(ListView):
     model = Clientes
@@ -17,15 +12,13 @@ class ListaClientes(ListView):
     
 class CrearUsuario(CreateView):
     model = Clientes
-    forms = CreacionClienteFormulario
-    fields = ['usuario', 'contraseña', 'email', 'telefono']
+    fields=['usuario', 'contraseña', 'email', 'telefono']
     template_name ='inicio/crear_usuario_cbv.html'
     success_url = '/clientes/'
     
     
 class EditarUsuario(UpdateView):
     model = Clientes
-    # forms = EditarUsuarioFormulario
     fields = ['usuario', 'contraseña', 'email', 'telefono']
     template_name ='inicio/editar_cbv.html'
     success_url = '/clientes/'
@@ -35,7 +28,7 @@ class EditarUsuario(UpdateView):
         context["usuario"] = self.object
         return context
 
-class EliminarUsuario(BaseClientes,DeleteView):
+class EliminarUsuario(DeleteView):
     model = Clientes
     template_name = 'inicio/eliminar_usuario_cbv.html'
     succes_url = '/clientes/'
@@ -44,8 +37,16 @@ class EliminarUsuario(BaseClientes,DeleteView):
         context = super().get_context_data(**kwargs)
         context["usuario"] = self.object
         return context
+    
+    def get_success_url(self):
+        return reverse('inicio_principal:inicio')
 
-class MostrarUsuario(BaseClientes,DetailView):
+    def post(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        self.object.delete()
+        return HttpResponseRedirect(self.get_success_url())
+
+class MostrarUsuario(DetailView):
     model = Clientes
     template_name = 'inicio/mostrar_usuario_cbv.html'
     
