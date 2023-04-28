@@ -14,7 +14,7 @@
     {% csrf_token %}
    <h2 style="color:black" class="titulo-seccion">¿Desea eliminar el siguiente usuario?: {{usuario.usuario}}</h2>
     <button>
-    <a class="btn" href={% url 'inicio_principal:eliminar_usuario' usuario.pk %}>Eliminar</a>
+    <a class="btn">Eliminar</a>
     </button>
 </form>
 {% endblock signup%}

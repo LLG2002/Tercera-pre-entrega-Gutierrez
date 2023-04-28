@@ -6,16 +6,18 @@
 {% endblock title  %}
 
 {% block header %}
-<form action= {% url 'inicio_principal:editar_usuario' usuario.pk %} method="POST">
+<h1 class="titulo-seccion" style="color:black">Editar</h1>
+{% endblock header %}
+
+{% block signup%}
+<form class="signup" action= {% url 'inicio_principal:editar_usuario' usuario.pk %} method="POST">
     {% csrf_token %}
     <table>
         {{form}}
     </table>
     <button>Editar</button>
 </form>
-{% endblock header %}
-
-
+{% endblock signup %}
 
 
 {%block email%}

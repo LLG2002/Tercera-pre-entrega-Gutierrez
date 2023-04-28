@@ -5,6 +5,40 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.urls import reverse
 from django.http import HttpResponseRedirect
+from django.shortcuts import render, redirect
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth import authenticate, login as django_login
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+def registrarse(request):
+    if request.method == "POST":
+        formulario = UserCreationForm(request.POST)
+        
+        if formulario.is_valid():
+            formulario.save()
+            return redirect('inicio_principal:login')
+        else:
+            return render(request, 'inicio/registrar.html', {'formulario': formulario})
+    
+    formulario = UserCreationForm()
+    return render(request, 'inicio/registrar.html', {'formulario': formulario})
+
+def login(request):
+    if request.method == 'POST':
+        formulario = AuthenticationForm(request, data=request.POST)
+        
+        if formulario.is_valid():
+            nombre_usuario = formulario.cleaned_data.get('username')
+            contrasenia = formulario.cleaned_data.get('password')
+            usuario = authenticate(username=nombre_usuario, password=contrasenia)
+            django_login(request, usuario)
+            return redirect('inicio_principal:inicio')
+        else:
+            return render(request, 'inicio/login.html', {'formulario': formulario})
+            
+        
+    formulario = AuthenticationForm()
+    return render(request, 'inicio/login.html', {'formulario': formulario})
 
 class ListaClientes(ListView):
     model = Clientes
@@ -12,14 +46,14 @@ class ListaClientes(ListView):
     
 class CrearUsuario(CreateView):
     model = Clientes
-    fields=['usuario', 'contraseña', 'email', 'telefono']
+    fields=['usuario', 'conjunto', 'email', 'telefono', 'producto']
     template_name ='inicio/crear_usuario_cbv.html'
     success_url = '/clientes/'
     
     
-class EditarUsuario(UpdateView):
+class EditarUsuario(LoginRequiredMixin,UpdateView):
     model = Clientes
-    fields = ['usuario', 'contraseña', 'email', 'telefono']
+    fields = ['usuario', 'conjunto', 'email', 'telefono', 'producto']
     template_name ='inicio/editar_cbv.html'
     success_url = '/clientes/'
     
@@ -28,7 +62,7 @@ class EditarUsuario(UpdateView):
         context["usuario"] = self.object
         return context
 
-class EliminarUsuario(DeleteView):
+class EliminarUsuario(LoginRequiredMixin,DeleteView):
     model = Clientes
     template_name = 'inicio/eliminar_usuario_cbv.html'
     succes_url = '/clientes/'
@@ -46,7 +80,7 @@ class EliminarUsuario(DeleteView):
         self.object.delete()
         return HttpResponseRedirect(self.get_success_url())
 
-class MostrarUsuario(DetailView):
+class MostrarUsuario(LoginRequiredMixin,DetailView):
     model = Clientes
     template_name = 'inicio/mostrar_usuario_cbv.html'
     

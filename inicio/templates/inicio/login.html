@@ -2,7 +2,7 @@
 {%load static%}
 
 {% block title  %}
-<title>Tu Carrito</title>
+<title>Login</title>
 {% endblock title  %}
 {%block header%}
 <h2><span style="color:black">Sobre nosotros:</span></h2>
@@ -18,21 +18,35 @@
 {%endblock header%}
 
 {% block signup %}
-         
-            <form class="signup" id="signup" action={% url 'inicio_principal:inicio' %} method="POST">
+{% if formulario.errors%}
+<h2 style="color:red">Error: contraseña o usuario incorrectos</h2>      
+{% endif  %}
+            <form class="signup" id="login" action={% url 'inicio_principal:login' %} method="POST">
                {% csrf_token %}
                <table>
-                  <h2>Carrito</h2>
-                  <h3>Elegi tus productos favoritos: especifica que conjunto/s, y prenda/s queres. 
-                     Deja tus datos para coordinar la entrega, que te llega a domicilio sin cargo (compras mayores a $15000).
-                  </h3>
-                  {{form}}
+                  <h2>Iniciar sesion</h2>
+                  {{formulario}}
                </table>
-               <button>Crear</button>
+               <button>Iniciar Sesion</button>
                
             </form>
-            {% endblock signup %}
+{% endblock signup %}
+
+{% block login %}    
+{% comment %} {% if formulario.errors%}
+<h2 style="color:red">Error: contraseña o usuario incorrectos</h2>      
+{% endif  %}
+            <form class="signup" id="login" action={% url 'inicio_principal:login' %} method="POST">
+               {% csrf_token %}
+               <table>
+                  <h2>Iniciar sesion</h2>
+                  {{formulario}}
+               </table>
+               <button>Iniciar Sesion</button>
+               
+            </form> {% endcomment %}
+{% endblock login %}
 
 {% block email %}
  <span class="info-contacto">style4child@gmail.com</span> 
-{% endblock email %} 
+{% endblock email %}

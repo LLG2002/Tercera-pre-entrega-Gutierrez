@@ -21,13 +21,16 @@
             <header>
                 <div class="nav-bar" onclick="mostrarOcultarMenu()">
                     <i class="fa-solid fa-bars"></i>
+                    <a class='btn' href="#">{{request.user.username}}</a>
                 </div>
                 <nav class="nav" id="nav">
                     <a href="http://127.0.0.1:8000/">Inicio</a>
-                    <a href="#registrarse">Registrarse</a>
+                    <a href="#signup">Registrarse</a>
+                    <a href="/login">Login</a>
                     <a href="#fotos">Galería de fotos</a>
                     <a href="/clientes">Lista clientes</a>
                     <a href="#contacto">Contacto</a>
+                    <a href="/logout">Cerrar usuario</a>
                 </nav>
                 <div class="logo">
                     Style<span class="color"></span><span class="nro">4</span>Child<span class="color"></span>
@@ -98,148 +101,18 @@
     </section>
     {% endblock carousel%}
 
-    <!--Sección Resumen-->
-    <section class="resumen" id="resumen">
-        <div class="contenido-seccion">
-            <h2 class="titulo-seccion">Resumen</h2>
-            <h3>Mi formación y experiencia</h3>
-            <div class="info">
-                <div class="col">
-                    <span class="titulo">Educación</span>
-                    <table>
-                        <tr>
-                            <td class="datos">
-                                <h3>2012 - 2016</h3>
-                            </td>
-                            <td rowspan="2" class="descripcion">
-                                <ul>
-                                    <li>
-                                        3er lugar en el Hackaton CodeFest 2014.
-                                    </li>
-                                    <li>
-                                        Creador del blog www.codigoinfinito.com, especializado en consejos de programación y seguridad web.
-                                    </li>
-                                    <li>
-                                        Ganador de la beca de Excelencia Académica 2014.
-                                    </li>
-                                </ul>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4>Lic. en Ciencias de la Computación</h3>
-                                <p>Universidad Tecnológica Nacional</p>
-                                <span class="promedio">8.5 promedio general</span>
-                            </td>
-                        </tr>
-                    </table>
-                    <table>
-                        <tr>
-                            <td class="datos">
-                                <h3>2016 - 2020</h3>
-                            </td>
-                            <td rowspan="2" class="descripcion">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <h4>Máster en Programación de Sistemas Informáticos</h3>
-                                <p>Universidad Tecnológica Nacional</p>
-                                <span class="promedio">8.3 promedio general</span>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="col">
-                    <span class="titulo">Experiencia laboral</span>
-                    <ol>
-                        <li>
-                            <table>
-                                <tr>
-                                    <td class="datos">
-                                        <h3>3 años</h3>
-                                    </td>
-                                    <td rowspan="2" class="descripcion">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h4>Santander Río</h3>
-                                        <p>Programadora Junior</p>
-                                    </td>
-                                </tr>
-                            </table>
-                        </li>
-                        <li>
-                            <table>
-                                <tr>
-                                    <td class="datos">
-                                        <h3>2 años</h3>
-                                    </td>
-                                    <td rowspan="2" class="descripcion">
-                                        Como parte del comité de mejoras continuas de la empresa, colaboré para optimizar los tiempos de carga de la página web en un 15%.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h4>Programadora fullstack HTML, CSS, JavaScript</h3>
-                                        <p>Accenture</p>
-                                    </td>
-                                </tr>
-                            </table>
-                        </li>
-                        <li>
-                            <table>
-                                <tr>
-                                    <td class="datos">
-                                        <h3>1 año</h3>
-                                    </td>
-                                    <td rowspan="2" class="descripcion">
-                                        Diseñé complejos proyectos con agilidad para clientes exigentes.
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <h4>Diseñadora de siitos web independiente</h3>
-                                        <p>HTML, CSS, JavaScript, Python</p>
-                                    </td>
-                                </tr>
-                            </table>
-                        </li>
-                    </ol>
-                </div>
-            </div>
-        </div>
+    <!--Sección login-->
+    <section class="login" id="login">
+        {% block login %}
+        
+        {% endblock login %}
     </section>
 
-    <!--Sección Contacto-->
+    <!--Sección contacto-->
     <section class="contacto" id="contacto">
         
      <section class="contacto" id="contacto">
         <div class="contenido-seccion">
-            {% comment %} <h2 class="titulo-seccion">Contacto</h2>
-            <h3>Contactate conmigo</h3>
-            <form action="#" method="post">
-                <ul>
-                    <li>
-                      <label for="name">Nombre:</label>
-                      <input type="text" id="name" name="user_name" required>
-                    </li>
-                    <li>
-                      <label for="mail">Correo electrónico:</label>
-                      <input type="email" id="mail" name="user_mail" required>
-                    </li>
-                    <li>
-                      <label for="msg">Mensaje:</label>
-                      <textarea id="msg" name="user_message"></textarea>
-                    </li>
-                </ul>
-                <li class="button">
-                    <button type="submit">Envíe su mensaje</button>
-                  </li>
-            </form> {% endcomment %}
             <div class="fila">
                 <div class="col">
                     <h2>
