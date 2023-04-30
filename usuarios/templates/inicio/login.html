@@ -21,7 +21,7 @@
 {% if formulario.errors%}
 <h2 style="color:red">Error: contraseña o usuario incorrectos</h2>      
 {% endif  %}
-            <form class="signup" id="login" action={% url 'inicio_principal:login' %} method="POST">
+            <form class="signup" id="login" action={% url 'usuarios:login' %} method="POST">
                {% csrf_token %}
                <table>
                   <h2>Iniciar sesion</h2>
@@ -33,18 +33,6 @@
 {% endblock signup %}
 
 {% block login %}    
-{% comment %} {% if formulario.errors%}
-<h2 style="color:red">Error: contraseña o usuario incorrectos</h2>      
-{% endif  %}
-            <form class="signup" id="login" action={% url 'inicio_principal:login' %} method="POST">
-               {% csrf_token %}
-               <table>
-                  <h2>Iniciar sesion</h2>
-                  {{formulario}}
-               </table>
-               <button>Iniciar Sesion</button>
-               
-            </form> {% endcomment %}
 {% endblock login %}
 
 {% block email %}

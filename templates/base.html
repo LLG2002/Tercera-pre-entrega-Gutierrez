@@ -21,20 +21,31 @@
             <header>
                 <div class="nav-bar" onclick="mostrarOcultarMenu()">
                     <i class="fa-solid fa-bars"></i>
-                    <a class='btn' href="#">{{request.user.username}}</a>
+                </div>
+                <div>
+                    {%if request.user.is_authenticated %}
+                    <a class='btn' href={% url 'usuarios:editar' %}>{{request.user.username}}</a>
+                    {% endif %}
                 </div>
                 <nav class="nav" id="nav">
                     <a href="http://127.0.0.1:8000/">Inicio</a>
                     <a href="#signup">Registrarse</a>
                     <a href="/login">Login</a>
-                    <a href="#fotos">Galería de fotos</a>
-                    <a href="/clientes">Lista clientes</a>
                     <a href="#contacto">Contacto</a>
+                    <a href="#fotos">Galería de fotos</a>
+                    {%if request.user.is_authenticated %}
+                    <a href={% url 'usuarios:editar' %}>Editar perfil</a>
+                    <a href={% url 'usuarios:cambiar_contrasenia' %}>Cambiar Contrasenia</a>
+                    <a href={% url 'inicio_principal:lista_clientes' %}>Lista clientes</a>
                     <a href="/logout">Cerrar usuario</a>
+                    {% endif %}
                 </nav>
                 <div class="logo">
                     Style<span class="color"></span><span class="nro">4</span>Child<span class="color"></span>
                 </div>
+                {%if request.user.infoextra.avatar.url %}
+                    <img src={{request.user.infoextra.avatar.url}} alt="" height="40px">
+                {%endif%} 
             </header>
             <div class="info">
                  {% block header %}
@@ -59,42 +70,37 @@
         <div class="slider">
             <div class="slide-track">
                 <div class="slide">
-                    <img src={% static 'imagen1.jpg' %}  alt="">
+                    <img src={% static 'conj1.jpg' %}  alt="">
                 </div>
                 <div class="slide">
-                    <img src={% static 'imagen2.jpg' %}  alt="">
+                    <img src={% static 'conj2.jpg' %}  alt="">
                 </div>
                 <div class="slide">
-                    <img src={% static 'imagen3.jpg' %} alt="">
+                    <img src={% static 'conj3.jpg' %} alt="">
                 </div>
                 <div class="slide">
-                    <img src="4.png" alt="">
+                    <img src={% static 'conj4.jpg' %} alt="">
                 </div>
                 <div class="slide">
-                    <img src="5.png" alt="">
-                </div>
-                <div class="slide">
-                    <img src="6.png" alt="">
+                    <img src={% static 'conj5.jpg' %} alt="">
                 </div>
     
                 <div class="slide">
-                    <img src="1.png" alt="">
+                    <img src={% static 'conj1.jpg' %} alt="">
                 </div>
                 <div class="slide">
-                    <img src="2.png" alt="">
+                    <img src={% static 'conj5.jpg' %} alt="">
                 </div>
                 <div class="slide">
-                    <img src="3.png" alt="">
+                    <img src={% static 'conj3.jpg' %} alt="">
                 </div>
                 <div class="slide">
-                    <img src="4.png" alt="">
+                    <img src={% static 'conj4.jpg' %} alt="">
                 </div>
                 <div class="slide">
-                    <img src="5.png" alt="">
+                    <img src={% static 'conj5.jpg' %} alt="">
                 </div>
-                <div class="slide">
-                    <img src="6.png" alt="">
-                </div>
+                
             </div>
             </div>
         </div>

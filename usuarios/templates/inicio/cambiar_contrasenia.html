@@ -2,7 +2,7 @@
 {%load static%}
 
 {% block title  %}
-<title>Registrarse</title>
+<title>Cambio Contrasenia</title>
 {% endblock title  %}
 {%block header%}
 <h2><span style="color:black">Sobre nosotros:</span></h2>
@@ -18,14 +18,13 @@
 {%endblock header%}
 
 {% block signup %}
-<form class="signup" id="signup" action={% url 'usuarios:registrarse' %} method="POST" enctype='multipart/form-data'>
+<form class="signup" id="signup" action={% url 'usuarios:cambiar_contrasenia' %} method="POST">
    {% csrf_token %}
+   <h3>Cambiar Contrasenia</h3>
    <table>
-      <h2>Registrarse</h2>
-      <h3>¿Ya tenés tu cuenta?</h3>
-      {{formulario}}
+      {{form}}
    </table>
-   <button>Crear</button>
+   <button>Cambiar</button>
 </form>
 {% endblock signup %}
 
@@ -35,4 +34,4 @@
 
 {% block email %}
  <span class="info-contacto">style4child@gmail.com</span> 
-{% endblock email %} 
+{% endblock email %}

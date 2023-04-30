@@ -1,10 +1,10 @@
-
 from inicio.models import Clientes
 from django.views.generic.list import ListView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic.detail import DetailView
 from django.urls import reverse
 from django.http import HttpResponseRedirect
+from django.urls import reverse_lazy
 
 class ListaClientes(ListView):
     model = Clientes
@@ -14,14 +14,14 @@ class CrearUsuario(CreateView):
     model = Clientes
     fields=['usuario', 'conjunto', 'email', 'telefono', 'producto']
     template_name ='inicio/crear_usuario_cbv.html'
-    success_url = '/clientes/'
+    success_url = reverse_lazy('inicio_principal:lista_clientes')
     
     
 class EditarUsuario(UpdateView):
     model = Clientes
     fields = ['usuario', 'conjunto', 'email', 'telefono', 'producto']
     template_name ='inicio/editar_cbv.html'
-    success_url = '/clientes/'
+    success_url = reverse_lazy('inicio_principal:lista_clientes')
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -31,7 +31,7 @@ class EditarUsuario(UpdateView):
 class EliminarUsuario(DeleteView):
     model = Clientes
     template_name = 'inicio/eliminar_usuario_cbv.html'
-    succes_url = '/clientes/'
+    succes_url = reverse_lazy('inicio_principal:lista_clientes')
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

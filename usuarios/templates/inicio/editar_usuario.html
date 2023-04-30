@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {%load static%}
 
+
 {% block title  %}
-<title>Registrarse</title>
+<title>Editar Usuario</title>
 {% endblock title  %}
 {%block header%}
 <h2><span style="color:black">Sobre nosotros:</span></h2>
@@ -18,19 +19,19 @@
 {%endblock header%}
 
 {% block signup %}
-<form class="signup" id="signup" action={% url 'usuarios:registrarse' %} method="POST" enctype='multipart/form-data'>
+
+<form class="signup" id="signup" action={% url 'usuarios:editar' %} method="POST" enctype='multipart/form-data'>
    {% csrf_token %}
+   <h2>Edita usuario</h2>
    <table>
-      <h2>Registrarse</h2>
-      <h3>¿Ya tenés tu cuenta?</h3>
       {{formulario}}
    </table>
-   <button>Crear</button>
+   <button type='button'><a href={% url 'usuario:cambiar_contrasenia' %}>Cambiar contrasenia</a></button>
+   <button>Editar</button>
 </form>
 {% endblock signup %}
 
 {% block login %}    
-
 {% endblock login %}
 
 {% block email %}
