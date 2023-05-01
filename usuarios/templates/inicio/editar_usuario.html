@@ -20,13 +20,13 @@
 
 {% block signup %}
 
-<form class="signup" id="signup" action={% url 'usuarios:editar' %} method="POST" enctype='multipart/form-data'>
+<form class="signup" id="signup" action={% url 'usuarios:editar' %} method="POST" enctype="multipart/form-data">
    {% csrf_token %}
-   <h2>Edita usuario</h2>
+   <h2>Editar usuario</h2>
    <table>
       {{formulario}}
    </table>
-   <button type='button'><a href={% url 'usuario:cambiar_contrasenia' %}>Cambiar contrasenia</a></button>
+   <button type='button'><a href={% url 'usuarios:cambiar_contrasenia' %}>Cambiar contrasenia</a></button>
    <button>Editar</button>
 </form>
 {% endblock signup %}

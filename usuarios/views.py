@@ -45,20 +45,21 @@ def login(request):
 def editar_usuario(request):
     
     if request.method == "POST":
-        formulario = EditarUsuario(request.POST, request.FILES, instance=request.user)
+        formulario = EditarUsuario(request.POST, request.FILES, instance=request.user.infoextra)
         
         if formulario.is_valid():
             if formulario.cleaned_data.get('avatar'):
                 request.user.infoextra.avatar = formulario.cleaned_data.get('avatar')
-                request.user.InfoExtra.save()
-                formulario.save()
-                return redirect('inicio_principal:inicio')
+            request.user.infoextra.save()
+            formulario.save()
+            return redirect('inicio_principal:inicio')
+        
         else:
             return render(request, 'inicio/editar_usuario.html', {'formulario': formulario})
     
     formulario = EditarUsuario(initial={'avatar' : request.user.infoextra.avatar}, instance=request.user)
-    return render(request, 'inicio/registrar.html', {'formulario': formulario})
+    return render(request, 'inicio/editar_usuario.html', {'formulario': formulario})
 
 class CambiarContrasenia(LoginRequiredMixin,PasswordChangeView):
     template_name= 'inicio/cambiar_contrasenia.html'
-    success_url= reverse_lazy('usuarios:editar')
+    success_url= reverse_lazy('usuarios:login')

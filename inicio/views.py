@@ -5,6 +5,11 @@ from django.views.generic.detail import DetailView
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
+from django.shortcuts import render
+
+def about_me(request):
+    return render(request, 'inicio/about_me.html')
+
 
 class ListaClientes(ListView):
     model = Clientes
