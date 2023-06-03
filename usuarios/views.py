@@ -45,7 +45,7 @@ def login(request):
 def editar_usuario(request):
     
     if request.method == "POST":
-        formulario = EditarUsuario(request.POST, request.FILES, instance=request.user.infoextra)
+        formulario = EditarUsuario(request.POST, request.FILES, instance=request.user)
         
         if formulario.is_valid():
             if formulario.cleaned_data.get('avatar'):

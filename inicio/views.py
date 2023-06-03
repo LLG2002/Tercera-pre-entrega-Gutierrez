@@ -6,6 +6,7 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 def about_me(request):
     return render(request, 'inicio/about_me.html')
@@ -33,7 +34,7 @@ class EditarUsuario(UpdateView):
         context["usuario"] = self.object
         return context
 
-class EliminarUsuario(DeleteView):
+class EliminarUsuario(LoginRequiredMixin, DeleteView):
     model = Clientes
     template_name = 'inicio/eliminar_usuario_cbv.html'
     succes_url = reverse_lazy('inicio_principal:lista_clientes')
