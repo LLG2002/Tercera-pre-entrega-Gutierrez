@@ -63,3 +63,10 @@ def editar_usuario(request):
 class CambiarContrasenia(LoginRequiredMixin,PasswordChangeView):
     template_name= 'inicio/cambiar_contrasenia.html'
     success_url= reverse_lazy('usuarios:login')
+    
+@login_required 
+def mostrar_usuario(request):
+    ...
+    return render(request, 'inicio/perfil.html', {'user': request.user})
+    
+

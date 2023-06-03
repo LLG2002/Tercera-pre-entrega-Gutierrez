@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block header %}
+
+
+   <h2>Perfil del usuario</h2>
+<div>
+        <h2>{{ user.username }}</h2>
+</div>
+
+<div>
+    <img src={{request.user.infoextra.avatar.url}} alt="" height="40px">
+</div>
+
+<div>
+        Email: {{ user.email }}
+</div>
+
+<div>
+    <button type='button'><a href="https://signup.live.com/signup">Ingresa a tu email y envianos tu consulta</a></button>  
+</div>
+
+<button type='button'><a href={% url 'usuarios:cambiar_contrasenia' %}>Cambiar contrasenia</a></button> . <button type='button'><a href={% url 'usuarios:editar' %}>Editar</a></button>
+
+{% endblock header %}
+
+{% block login %}    
+{% endblock login %}
+
+{% block email %}
+ <span class="info-contacto">style4child@gmail.com</span> 
+{% endblock email %} 

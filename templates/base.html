@@ -45,7 +45,7 @@
                 {% if request.user.infoextra.avatar %}
                 <img src={{request.user.infoextra.avatar.url}} alt="" height="40px">
                 {% endif %}
-                <a class='btn' href={% url 'usuarios:editar' %}>{{request.user.username}}</a>
+                <a class='btn' href={% url 'usuarios:editar' %}>{{request.user.username}}</a> . <a class='btn' href={% url 'usuarios:perfil' %}>Ver Perfil</a>
                 {% endif %}
                 </div>
             </header>

@@ -12,6 +12,7 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(template_name='inicio/logout.html'), name='logout'),
     path('', views.registrarse, name='registrarse'),   
     path('cambiar-contrasenia/', views.CambiarContrasenia.as_view(), name='cambiar_contrasenia'),
+    path('perfil/', views.mostrar_usuario, name='perfil'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
