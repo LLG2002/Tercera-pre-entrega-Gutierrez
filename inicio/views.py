@@ -16,14 +16,14 @@ class ListaClientes(ListView):
     model = Clientes
     template_name = 'inicio/lista_clientes_cbv.html'
     
-class CrearUsuario(CreateView):
+class CrearUsuario(LoginRequiredMixin, CreateView):
     model = Clientes
     fields=['usuario', 'conjunto', 'email', 'telefono', 'producto', 'fecha_de_realizacion', 'descripcion', 'imagen']
     template_name ='inicio/crear_usuario_cbv.html'
     success_url = reverse_lazy('inicio_principal:lista_clientes')
     
     
-class EditarUsuario(UpdateView):
+class EditarUsuario(LoginRequiredMixin, UpdateView):
     model = Clientes
     fields = ['usuario', 'conjunto', 'email', 'telefono', 'producto', 'fecha_de_realizacion', 'descripcion', 'imagen']
     template_name ='inicio/editar_cbv.html'
@@ -52,7 +52,7 @@ class EliminarUsuario(LoginRequiredMixin, DeleteView):
         self.object.delete()
         return HttpResponseRedirect(self.get_success_url())
 
-class MostrarUsuario(DetailView):
+class MostrarUsuario(LoginRequiredMixin, DetailView):
     model = Clientes
     template_name = 'inicio/mostrar_usuario_cbv.html'
     

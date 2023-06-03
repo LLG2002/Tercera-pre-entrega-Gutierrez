@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{%load static%}
+{% load static %}
 
 {% block title  %}
 <title>Clientes</title>
@@ -18,7 +18,7 @@
     <li>Telefono: {{usuario.telefono}}</li>
     <li>Email: {{usuario.email}}</li>
     <li>
-        <img src="{{ usuario.imagen.url }}" alt="Imagen">
+        <img src="{{ usuario.imagen.url }}" alt="Imagen" width="300" height="300">
     </li>
     <p>
         <button>
