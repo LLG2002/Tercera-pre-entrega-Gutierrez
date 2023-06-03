@@ -19,13 +19,14 @@
 
 {% block signup %}
          
-            <form class="signup" id="signup" action={% url 'inicio_principal:inicio' %} method="POST">
+            <form class="signup" id="signup" action={% url 'inicio_principal:inicio' %} method="POST" enctype="multipart/form-data">
                {% csrf_token %}
                <table>
                   <h2>Carrito</h2>
                   <h3>Elegi tus productos favoritos: especifica que conjunto/s, y prenda/s queres. 
                      Deja tus datos para coordinar la entrega, que te llega a domicilio sin cargo (compras mayores a $15000).
                   </h3>
+                  {{form.media}}
                   {{form}}
                </table>
                <button>Crear</button> 

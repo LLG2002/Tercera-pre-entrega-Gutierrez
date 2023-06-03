@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='clientes',
             name='fecha_de_realizacion',
-            field=models.DateField(default=8.238589553468446e-05),
+            field=models.DateField(default='2023-05-31'),
             preserve_default=False,
         ),
     ]

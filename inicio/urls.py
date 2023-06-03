@@ -1,5 +1,7 @@
 from django.urls import path
 from inicio import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 app_name= 'inicio_principal'
 urlpatterns = [
@@ -11,3 +13,5 @@ urlpatterns = [
     path('inicio/clientes/mostrar/<int:pk>/', views.MostrarUsuario.as_view(), name='mostrar_usuario'),
     path('about/', views.about_me, name='about'),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

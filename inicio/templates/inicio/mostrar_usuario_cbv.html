@@ -14,8 +14,12 @@
     <li>Usuario: {{usuario.usuario}}</li>
     <li>producto: {{usuario.producto}}</li>
     <li>conjunto: {{usuario.conjunto}}</li>
+    <li>Descripcion: {{usuario.descripcion | safe}}</li>
     <li>Telefono: {{usuario.telefono}}</li>
     <li>Email: {{usuario.email}}</li>
+    <li>
+        <img src="{{ usuario.imagen.url }}" alt="Imagen">
+    </li>
     <p>
         <button>
             <a class="btn" href={% url 'inicio_principal:editar_usuario' usuario.pk %}>Editar</a>

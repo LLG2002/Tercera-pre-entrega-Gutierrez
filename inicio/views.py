@@ -18,14 +18,14 @@ class ListaClientes(ListView):
     
 class CrearUsuario(CreateView):
     model = Clientes
-    fields=['usuario', 'conjunto', 'email', 'telefono', 'producto']
+    fields=['usuario', 'conjunto', 'email', 'telefono', 'producto', 'fecha_de_realizacion', 'descripcion', 'imagen']
     template_name ='inicio/crear_usuario_cbv.html'
     success_url = reverse_lazy('inicio_principal:lista_clientes')
     
     
 class EditarUsuario(UpdateView):
     model = Clientes
-    fields = ['usuario', 'conjunto', 'email', 'telefono', 'producto']
+    fields = ['usuario', 'conjunto', 'email', 'telefono', 'producto', 'fecha_de_realizacion', 'descripcion', 'imagen']
     template_name ='inicio/editar_cbv.html'
     success_url = reverse_lazy('inicio_principal:lista_clientes')
     

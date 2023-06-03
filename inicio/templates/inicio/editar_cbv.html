@@ -13,6 +13,7 @@
 <form class="signup" action= {% url 'inicio_principal:editar_usuario' usuario.pk %} method="POST">
     {% csrf_token %}
     <table>
+        {{form.media}}
         {{form}}
     </table>
     <button>Editar</button>
